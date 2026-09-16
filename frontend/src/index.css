@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-ink-950 text-slate-200 font-body antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139, 92, 246, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(45, 212, 191, 0.10), transparent);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.3);
+}
+
+.font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.glass-card {
+  @apply bg-white/[0.03] border border-white/[0.08] backdrop-blur-xl rounded-2xl;
+}
+
+.glass-card-hover {
+  @apply transition-all duration-300 hover:bg-white/[0.05] hover:border-white/[0.15];
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(94, 234, 212, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #5eead4 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-medium text-ink-950 transition-all duration-200;
+  background: linear-gradient(120deg, #5eead4, #a78bfa);
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-medium text-slate-200 border border-white/15 bg-white/[0.03] transition-all duration-200 hover:bg-white/[0.08];
+}
+
+.input-field {
+  @apply w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-slate-100 placeholder-slate-500 outline-none transition-colors focus:border-signal-400/60 focus:bg-white/[0.06];
+}
+
+/* Native <select> dropdown popups are OS-rendered and ignore most CSS;
+   without this, the expanded options list can render as light text on a
+   light system background (invisible) even though the closed box looks
+   fine. color-scheme fixes it in Chrome/Edge/Firefox; the explicit
+   option colors are a belt-and-suspenders fallback. */
+select.input-field option {
+  background-color: #0f1424;
+  color: #f1f5f9;
+}
+
+.label-text {
+  @apply text-sm font-medium text-slate-400 mb-2 block;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+}
